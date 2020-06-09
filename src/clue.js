@@ -3,80 +3,68 @@
 // Suspects Collection
 const suspectsArray = [
   {
-    mrGreen: {
-      firstName: "Jacob",
-      lastName: "Green",
-      occupation: "Entrepreneur",
-      age: 45,
-      description: "He has a lot of connections",
-      image:
-        "https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg",
-      color: "green",
-    },
+    firstName: "Jacob",
+    lastName: "Green",
+    occupation: "Entrepreneur",
+    age: 45,
+    description: "He has a lot of connections",
+    image:
+      "https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg",
+    color: "green"
   },
 
   {
-    drOrchid: {
-      firstName: "Doctor",
-      lastName: "Orchid",
-      occupation: "Scientist",
-      age: 26,
-      description: "PhD in plant toxicology. Adopted daughter of Mr. Boddy",
-      image: "http://www.radiotimes.com/uploads/images/Original/111967.jpg",
-      color: "white",
-    },
+    firstName: "Doctor",
+    lastName: "Orchid",
+    occupation: "Scientist",
+    age: 26,
+    description: "PhD in plant toxicology. Adopted daughter of Mr. Boddy",
+    image: "http://www.radiotimes.com/uploads/images/Original/111967.jpg",
+    color: "white"
   },
 
   {
-    profPlum: {
-      firstName: "Victor",
-      lastName: "Plum",
-      occupation: "Designer",
-      age: 22,
-      description: "Billionaire video game designer",
-      image:
-        "https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg",
-      color: "purple",
-    },
+    firstName: "Victor",
+    lastName: "Plum",
+    occupation: "Designer",
+    age: 22,
+    description: "Billionaire video game designer",
+    image:
+      "https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg",
+    color: "purple"
   },
 
   {
-    missScarlet: {
-      firstName: "Kasandra",
-      lastName: "Scarlet",
-      occupation: "Actor",
-      age: 31,
-      description: "She is an A-list movie star with a dark past",
-      image: "https://www.radiotimes.com/uploads/images/Original/111967.jpg",
-      color: "red",
-    },
+    firstName: "Kasandra",
+    lastName: "Scarlet",
+    occupation: "Actor",
+    age: 31,
+    description: "She is an A-list movie star with a dark past",
+    image: "https://www.radiotimes.com/uploads/images/Original/111967.jpg",
+    color: "red"
   },
 
   {
-    mrsPeacock: {
-      firstName: "Eleanor",
-      lastName: "Peacock",
-      occupation: "Socialité",
-      age: 36,
-      description:
-        "She is from a wealthy family and uses her status and money to earn popularity",
-      image: "https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg",
-      color: "blue",
-    },
+    firstName: "Eleanor",
+    lastName: "Peacock",
+    occupation: "Socialité",
+    age: 36,
+    description:
+      "She is from a wealthy family and uses her status and money to earn popularity",
+    image: "https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg",
+    color: "blue"
   },
 
   {
-    mrMustard: {
-      firstName: "Jack",
-      lastName: "Mustard",
-      occupation: "Retired Football player",
-      age: 62,
-      description:
-        "He is a former football player who tries to get by on his former glory",
-      image:
-        "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/07/04/08/unspecified-3.jpg",
-      color: "yellow",
-    },
+    firstName: "Jack",
+    lastName: "Mustard",
+    occupation: "Retired Football player",
+    age: 62,
+    description:
+      "He is a former football player who tries to get by on his former glory",
+    image:
+      "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/07/04/08/unspecified-3.jpg",
+    color: "yellow"
   },
 ];
 
@@ -113,7 +101,9 @@ const weaponsArray = [
 ];
 
 
-// ITERATION 2
+// ITERATION 2 -RANDOM SELECTOR
+/* Declare a function named selectRandom to randomly select one element from a card stack. The function should expect an array as an argument, and should return a random element from the array. */
+
 // Fonction pour donner un chiffre aléatoire
 // console.log(getRandomInt(3));
 // expected output: 0, 1 or 2
@@ -121,43 +111,47 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//fonction selectRandom
-let randomSuspect = "";
-let randomRoom = "";
-let randomWeapon = "";
-
-function selectRandom(suspectsArray, roomsArray, weaponsArray) {
-  //SUSPECT ALEATOIRE
-  let randomSuspectIndex = getRandomInt(suspectsArray.length + 1);
-  randomSuspect = suspectsArray[randomSuspectIndex];
-  //console.log(suspectsArray[randomSuspectIndex]);
-
-  //LIEU ALEATOIRE
-  let randomRoomIndex = getRandomInt(roomsArray.length + 1);
-  randomRoom = roomsArray[randomRoomIndex];
-  //console.log(roomsArray[randomRoomIndex]);
-
-  //ARME ALEATOIRE
-  let randomWeaponIndex = getRandomInt(weaponsArray.length + 1);
-  randomWeapon = weaponsArray[randomWeaponIndex];
-  //console.log(weaponsArray[randomWeaponIndex]);
+// Fonction selectRandom
+// The function should expect an array as an argument, and should return a random element from the array.
+function selectRandom (array) {
+  let randomIndex = getRandomInt(array.length);
+  return array[randomIndex];
 };
 
-// selectRandom(suspectsArray, roomsArray, weaponsArray);
 
-//Fonction pickMystery
-function pickMystery() {
-  return { suspect: randomSuspect, weapon: randomWeapon, room: randomRoom }
+/* CREATE THE MYSTERY
+Declare a function named pickMystery that takes no arguments and returns an object with three properties: suspect, weapon and room, each holding as a value a card of that specific type. You can get a random card of each type by calling selectRandom on each card stack.
+*/
+
+function pickMystery () {
+  return {
+    // Get a random suspect card by calling selectRandom on the suspect card stack
+    suspect: selectRandom(suspectsArray),
+    // Get a random weapon card by calling selectRandom on the weapon card stack
+    weapon: selectRandom(weaponsArray),
+    // Get a random room card by calling selectRandom on the room card stack
+    room: selectRandom(roomsArray)
+  }
 };
 
-// pickMystery();
+pickMystery();
 
+
+// ITERATION 3 - REVEAL THE MYSTERY
+/* Declare a function named revealMystery that receives an envelope object (such as the one returned by pickMystery) as the single argument, and returns a reveal message in the following format:
+<FIRST NAME> <LAST NAME> killed Mr. Boddy using the <WEAPON> in the <ROOM>! */
+
+// Create the enveloppe
 let enveloppe = pickMystery();
+let enveloppe_2 = pickMystery();
+let enveloppe_3 = pickMystery();
 
-// ITERATION 3
-
-function revealMystery(enveloppe) {
-  console.log(`<FIRST NAME> <LAST NAME> killed Mr. Boddy using the <WEAPON> in the <ROOM>!`);
+// Definition
+function revealMystery(mysteryEnveloppe) {
+  return `${mysteryEnveloppe.suspect.firstName} ${mysteryEnveloppe.suspect.lastName} killed Mr. Boddy using the ${mysteryEnveloppe.weapon.name} in the ${mysteryEnveloppe.room.name}!`;
 };
 
-revealMystery();
+// Execution
+revealMystery(enveloppe);
+revealMystery(enveloppe_2);
+revealMystery(pickMystery());

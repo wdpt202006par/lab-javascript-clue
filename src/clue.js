@@ -96,5 +96,21 @@ const weaponsArray = [
 ];
 
 // ITERATION 2
+function selectRandom(tab){
+    // rend un entier entre 0 et la taille du tableau -1
+    let nbrRandom = Math.floor(Math.random() *  tab.length -1);
+
+    return tab[nbrRandom];
+}
+
+function pickMystery (){
+    let object = {
+        suspect : selectRandom(suspectsArray),
+        weapon : selectRandom(weaponsArray),
+        Room : selectRandom(roomsArray)
+    }
+
+    return object;
+}
 
 // ITERATION 3

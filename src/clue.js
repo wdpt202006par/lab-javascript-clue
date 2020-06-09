@@ -135,7 +135,7 @@ const weaponsArray = [
   },
 ];
 
-// ITERATION 2
+// ITERATION 2  
 
 function selectRandom(array) {
   var randomIndex = Math.floor(Math.random() * Math.floor(array.length));
@@ -150,4 +150,10 @@ function pickMystery() {
   };
 }
 
+
 // ITERATION 3
+
+function revealMystery(envelope) {
+  envelope = pickMystery();
+  return `${envelope.suspectsName.firstName} ${envelope.suspectsName.lastName} killed Mr. Boddy using the ${envelope.weaponName.name} in the ${envelope.roomsName.name}!`;
+}

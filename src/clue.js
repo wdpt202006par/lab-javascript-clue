@@ -81,65 +81,83 @@ const suspectsArray = [
 ];
 
 // Rooms Collection
-const roomsArray = [];
+const roomsArray = [
+  { name: "Dining Room" },
+  { name: "Conservatory" },
+  { name: "Kitchen" },
+  { name: "Study" },
+  { name: "Library" },
+  { name: "Billiard Room" },
+  { name: "Lounge" },
+  { name: "Ballroom" },
+  { name: "Hall" },
+  { name: "Spa" },
+  { name: "Living Room" },
+  { name: "Observatory" },
+  { name: "Theater" },
+  { name: "Guest House" },
+  { name: "Patio" }
+];
 
 // Weapons Collection
-const weaponsArray = [];
+const weaponsArray = [
+  { name: "rope", weight: 10 },
+  { name: "knife", weight: 8 },
+  { name: "candlestick", weight: 2 },
+  { name: "dumbbell", weight: 30 },
+  { name: "poison", weight: 2 },
+  { name: "axe", weight: 15 },
+  { name: "bat", weight: 13 },
+  { name: "trophy", weight: 25 },
+  { name: "pistol", weight: 20 }
+];
+
 
 // ITERATION 2
+// Fonction pour donner un chiffre aléatoire
+// console.log(getRandomInt(3));
+// expected output: 0, 1 or 2
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+//fonction selectRandom
+let randomSuspect = "";
+let randomRoom = "";
+let randomWeapon = "";
+
+function selectRandom(suspectsArray, roomsArray, weaponsArray) {
+  //SUSPECT ALEATOIRE
+  let randomSuspectIndex = getRandomInt(suspectsArray.length + 1);
+  randomSuspect = suspectsArray[randomSuspectIndex];
+  //console.log(suspectsArray[randomSuspectIndex]);
+
+  //LIEU ALEATOIRE
+  let randomRoomIndex = getRandomInt(roomsArray.length + 1);
+  randomRoom = roomsArray[randomRoomIndex];
+  //console.log(roomsArray[randomRoomIndex]);
+
+  //ARME ALEATOIRE
+  let randomWeaponIndex = getRandomInt(weaponsArray.length + 1);
+  randomWeapon = weaponsArray[randomWeaponIndex];
+  //console.log(weaponsArray[randomWeaponIndex]);
+};
+
+// selectRandom(suspectsArray, roomsArray, weaponsArray);
+
+//Fonction pickMystery
+function pickMystery() {
+  return { suspect: randomSuspect, weapon: randomWeapon, room: randomRoom }
+};
+
+// pickMystery();
+
+let enveloppe = pickMystery();
 
 // ITERATION 3
 
-/*
-# Clue data
+function revealMystery(enveloppe) {
+  console.log(`<FIRST NAME> <LAST NAME> killed Mr. Boddy using the <WEAPON> in the <ROOM>!`);
+};
 
-Use this data to model your game cards into objects.
-
-### Suspects
-
-mrGreen <br>
-
-drOrchid<br>
-
-
-profPlum<br>
-
-
-missScarlet<br>
-
-
-mrsPeacock<br>
-
-
-mrMustard<br>
-
-
-### Weapons
-
-name: rope --- weight: 10<br>
-name: knife --- weight: 8<br>
-name: candlestick --- weight: 2<br>
-name: dumbbell --- weight: 30<br>
-name: poison --- weight: 2<br>
-name: axe --- weight: 15<br>
-name: bat --- weight: 13<br>
-name: trophy --- weight: 25<br>
-name: pistol --- weight: 20<br>
-
-### Rooms
-
-name: Dining Room<br>
-name: Conservatory<br>
-name: Kitchen<br>
-name: Study<br>
-name: Library<br>
-name: Billiard Room<br>
-name: Lounge<br>
-name: Ballroom<br>
-name: Hall<br>
-name: Spa<br>
-name: Living Room<br>
-name: Observatory<br>
-name: Theater<br>
-name: Guest House<br>
-name: Patio<br> */
+revealMystery();

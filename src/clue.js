@@ -95,7 +95,7 @@ const suspectsArray = [
     // ITERATION 2
     
     function selectRandom(tab) {
-        let element =tab[Math.round(Math.random() * tab.length -1)];
+        let element = tab[Math.round(Math.random() * tab.length -1)];
         return element;
     }
     
@@ -113,10 +113,8 @@ const suspectsArray = [
     
     
     // ITERATION 3
-    function revealMystery(){
-        reveal= pickMystery();
-        return (reveal.suspect.firstName , reveal.suspect.lastName, " killed Mr.Boddy using the " ,reveal.weapon.name ," in the " ,reveal.room.name);
-     
-    }
-  
-    revealMystery();
+    function revealMystery(envelope) {
+        return `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`;
+      };
+    
+     revealMystery()

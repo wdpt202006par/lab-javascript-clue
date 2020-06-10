@@ -92,6 +92,14 @@ function selectRandom(array) {
 }
 selectRandom(weaponsArray);
 
+function pickMystery() {
+    let suspect = selectRandom(suspectsArray);
+    let weapon = selectRandom(weaponsArray);
+    let room = selectRandom(roomsArray);
+    let finalObject = {suspect,weapon,room};
+    return finalObject;
+}
+pickMystery();
 
 // ITERATION 3
 

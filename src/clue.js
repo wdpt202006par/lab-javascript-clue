@@ -103,3 +103,11 @@ pickMystery();
 
 // ITERATION 3
 
+function revealMystery(object) {
+    let phraseAnnounce = `${object.suspect.firstName} ${object.suspect.lastName} killed Mr. Boddy using the ${object.weapon.name} in the ${object.room.name}!`;
+    let result = phraseAnnounce;
+    return result;
+  }
+  revealMystery(pickMystery());
+
+

@@ -105,7 +105,7 @@ const roomsArray = [diningRoom, conservatory, kitchen, study, library, billiardR
 //
 
 function selectRandom(array) {
-  const randomIndex = Math.floor(Math.random() * array.length);
+  const randomIndex = Math.trunc(Math.random() * array.length);
   return array[randomIndex];
 }
 

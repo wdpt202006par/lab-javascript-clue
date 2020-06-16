@@ -95,8 +95,8 @@ const suspectsArray = [
     // ITERATION 2
     
     function selectRandom(tab) {
-        let element = tab[Math.round(Math.random() * tab.length -1)];
-        return element;
+        const selectedElement= Math.trunc(Math.random() * tab.length);
+        return tab[selectedElement];
     }
     
     function pickMystery() {
